@@ -14,31 +14,25 @@ void print_array(int* arr, int size)
 int partition(int *start, int size, int pivot_index)
 {
         int pivot = start[pivot_index];
-        int less_than = 0;
+        // move pivot to end
+        // in fact, we can just rip it out since we know what it is
+        // and we won't need to move it.
+        int swap = start[size - 1];
+        start[pivot_index] = swap;
+        int index = 0;
         int i;
-        for (i = 0; i < size; i++) {
+        for (i = 0; i < size - 1; i++) {
+                print_array(start, size);
                 if (start[i] < pivot) {
-                        less_than++;
+                        swap = start[index];
+                        start[index] = start[i];
+                        start[i] = swap;
+                        index++;
                 }
         }
-        int swap = start[less_than];
-        start[less_than] = pivot;
-        *start = swap;
-        int j;
-        int swap_me = less_than;
-        /* find all elts in right half greater than pivot,
-           swap them into the left half. */
-        for (j = 0; j < less_than; j++) {
-                if(start[j] >= pivot) {
-                        while (start[++swap_me] >= pivot)
-                               ;
-                        assert(swap_me <= size);
-                        swap = start[swap_me];
-                        start[swap_me] = start[j];
-                        start[j] = swap;
-                }
-        }
-        return less_than;
+        start[size - 1] = start[index];
+        start[index] = pivot;
+        return index;
 }
 
 void quicksort(int *start, int size)
