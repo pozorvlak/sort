@@ -7,6 +7,7 @@ void quicksort(int *start, int size)
                 return;
         }
         int pivot = *start;
+        printf("Pivot is %d\n", pivot);
         int less_than = 0;
         int i;
         for (i = 0; i < size; i++) {
