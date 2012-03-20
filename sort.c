@@ -11,12 +11,9 @@ void print_array(int* arr, int size)
         printf("%d\n", arr[last]);
 }
 
-void quicksort(int *start, int size)
+int partition(int *start, int size, int pivot_index)
 {
-        if (size <= 1) {
-                return;
-        }
-        int pivot = *start;
+        int pivot = start[pivot_index];
         int less_than = 0;
         int i;
         for (i = 0; i < size; i++) {
@@ -41,6 +38,15 @@ void quicksort(int *start, int size)
                         start[j] = swap;
                 }
         }
+        return less_than;
+}
+
+void quicksort(int *start, int size)
+{
+        if (size <= 1) {
+                return;
+        }
+        int less_than = partition(start, size, 0);
         quicksort(start, less_than);
         quicksort(start + less_than + 1, size - less_than - 1);
 }
