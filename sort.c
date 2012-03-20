@@ -46,7 +46,7 @@ void quicksort(int *start, int size)
 }
 
 int main() {
-        int arr[5] = { 2, 3, 1, 4, 0 };
-        quicksort(arr, 5);
-        print_array(arr, 5);
+        int arr[11] = { 2, 3, 1, 4, 7, 9, 10, 3, 2, 8, 0 };
+        quicksort(arr, 11);
+        print_array(arr, 11);
 }
