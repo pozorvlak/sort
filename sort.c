@@ -13,12 +13,10 @@ void print_array(int* arr, int size)
 
 void quicksort(int *start, int size)
 {
-        print_array(start, size);
         if (size <= 1) {
                 return;
         }
         int pivot = *start;
-        printf("Pivot is %d\n", pivot);
         int less_than = 0;
         int i;
         for (i = 0; i < size; i++) {
@@ -26,7 +24,6 @@ void quicksort(int *start, int size)
                         less_than++;
                 }
         }
-        printf("Found %d elts less than pivot\n", less_than);
         int swap = start[less_than];
         start[less_than] = pivot;
         *start = swap;
