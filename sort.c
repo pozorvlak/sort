@@ -6,7 +6,7 @@ void quicksort(int *start, int size)
         if (size = 0) {
                 return;
         }
-        pivot = *start;
+        int pivot = *start;
         int less_than = 0;
         int i;
         for (i = 0; i < size; i++) {
@@ -28,7 +28,7 @@ void quicksort(int *start, int size)
                         assert(swap_me <= size);
                         swap = start[swap_me];
                         start[swap_me] = start[j];
-                        start_j = swap;
+                        start[j] = swap;
                 }
         }
         quicksort(start, less_than);
@@ -36,7 +36,7 @@ void quicksort(int *start, int size)
 }
 
 int main() {
-        int[] arr = { 2, 3, 1, 4, 0 };
+        int arr[5] = { 2, 3, 1, 4, 0 };
         quicksort(arr, 5);
         int i;
         for (i = 0; i < 4; i++) {
