@@ -1,12 +1,24 @@
 #include <assert.h>
 #include <stdio.h>
 
+void print_array(int* arr, int size)
+{
+        int i;
+        int last = size - 1;
+        for (i = 0; i < last; i++) {
+                printf("%d, ", arr[i]);
+        }
+        printf("%d\n", arr[last]);
+}
+
 void quicksort(int *start, int size)
 {
-        if (size = 0) {
+        print_array(start, size);
+        if (size <= 1) {
                 return;
         }
         int pivot = *start;
+        printf("Pivot is %d\n", pivot);
         int less_than = 0;
         int i;
         for (i = 0; i < size; i++) {
@@ -14,6 +26,7 @@ void quicksort(int *start, int size)
                         less_than++;
                 }
         }
+        printf("Found %d elts less than pivot\n", less_than);
         int swap = start[less_than];
         start[less_than] = pivot;
         *start = swap;
@@ -38,9 +51,5 @@ void quicksort(int *start, int size)
 int main() {
         int arr[5] = { 2, 3, 1, 4, 0 };
         quicksort(arr, 5);
-        int i;
-        for (i = 0; i < 4; i++) {
-                printf("%d, ", arr[i]);
-        }
-        printf("%d\n", arr[5]);
+        print_array(arr, 5);
 }
