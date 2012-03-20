@@ -1,5 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 void print_array(int* arr, int size)
 {
@@ -40,12 +42,17 @@ void quicksort(int *start, int size)
         if (size <= 1) {
                 return;
         }
-        int less_than = partition(start, size, 0);
+        int pivot_index = random() * size / RAND_MAX;
+        if (pivot_index == size) {
+                pivot_index--;
+        }
+        int less_than = partition(start, size, pivot_index);
         quicksort(start, less_than);
         quicksort(start + less_than + 1, size - less_than - 1);
 }
 
 int main() {
+        srandom(time(NULL));
         int arr[11] = { 2, 3, 1, 4, 7, 9, 10, 3, 2, 8, 0 };
         quicksort(arr, 11);
         print_array(arr, 11);
