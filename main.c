@@ -2,11 +2,12 @@
 #include <time.h>
 #include "qsort.h"
 #include "msort.h"
+#include "bubblesort.h"
 #include "print_array.h"
 #include "stdio.h"
 
-#define NUM_ALGS 2
-char alg_name[NUM_ALGS][16] = { "quicksort", "mergesort" };
+#define NUM_ALGS 3
+char alg_name[NUM_ALGS][16] = { "quicksort", "mergesort", "bubblesort" };
 
 int is_sorted(int *arr, int length) {
         int i = 0;
@@ -27,6 +28,7 @@ int main() {
                 switch(i) {
                         case 0: quicksort(arr, 11); break;
                         case 1: mergesort(arr, 11); break;
+                        case 2: bubblesort(arr, 11); break;
                 }
                 printf("%s %i - %s produces ",
                         (is_sorted(arr, 11) ? "ok" : "not ok"),
