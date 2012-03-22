@@ -6,7 +6,7 @@ void bubblesort(int *arr, int length)
         while (!sorted) {
                 sorted = 1;
                 int i;
-                for (i = 0; i < length; i++) {
+                for (i = 0; i < length - 1; i++) {
                         if (arr[i] > arr[i + 1]) {
                                 sorted = 0;
                                 int swap = arr[i];
