@@ -22,7 +22,7 @@ void merge(int *arr, int *left, int lsize, int *right, int rsize)
         }
 }
 
-void merge_sort(int *arr, int size)
+void mergesort(int *arr, int size)
 {
         if (size <= 1) return;
         int lsize = size / 2;
@@ -31,8 +31,8 @@ void merge_sort(int *arr, int size)
         int *right = (int*) malloc(sizeof(int) * rsize);
         memcpy(left, arr, sizeof(int) * lsize);
         memcpy(right, arr + lsize, sizeof(int) * rsize);
-        merge_sort(left, lsize);
-        merge_sort(right, rsize);
+        mergesort(left, lsize);
+        mergesort(right, rsize);
         merge(arr, left, lsize, right, rsize);
         free(left);
         free(right);
