@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "qsort.h"
-#include "print_array.h"
 
 int partition(int *start, int size, int pivot_index)
 {
@@ -13,7 +12,6 @@ int partition(int *start, int size, int pivot_index)
         int index = 0;
         int i;
         for (i = 0; i < size - 1; i++) {
-                print_array(start, size);
                 if (start[i] < pivot) {
                         swap = start[index];
                         start[index] = start[i];
