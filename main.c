@@ -3,11 +3,13 @@
 #include "qsort.h"
 #include "msort.h"
 #include "bubblesort.h"
+#include "insertionsort.h"
 #include "print_array.h"
 #include "stdio.h"
 
-#define NUM_ALGS 3
-char alg_name[NUM_ALGS][16] = { "quicksort", "mergesort", "bubblesort" };
+#define NUM_ALGS 4
+char alg_name[NUM_ALGS][16] = { "quicksort", "mergesort", "bubblesort",
+        "insertion sort" };
 
 int is_sorted(int *arr, int length) {
         int i = -1;
@@ -29,6 +31,7 @@ int main() {
                         case 0: quicksort(arr, 11); break;
                         case 1: mergesort(arr, 11); break;
                         case 2: bubblesort(arr, 11); break;
+                        case 3: insertionsort(arr, 11); break;
                 }
                 printf("%s %i - %s produces ",
                         (is_sorted(arr, 11) ? "ok" : "not ok"),
