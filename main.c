@@ -10,8 +10,8 @@
 char alg_name[NUM_ALGS][16] = { "quicksort", "mergesort", "bubblesort" };
 
 int is_sorted(int *arr, int length) {
-        int i = 0;
-        while (i++ < length - 2) {
+        int i = -1;
+        while (++i < length - 2) {
                 if (arr[i] > arr[i + 1]) {
                         return 0;
                 }
