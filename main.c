@@ -11,10 +11,12 @@
 char alg_name[NUM_ALGS][16] = { "quicksort", "mergesort", "bubblesort",
         "insertion sort" };
 
-int is_sorted(int *arr, int length) {
-        int i = -1;
-        while (++i < length - 2) {
-                if (arr[i] > arr[i + 1]) {
+int is_expected(int *actual)
+{
+        int expected[11] = { 0, 1, 2, 2, 3, 3, 4, 7, 8, 9, 10 };
+        int i;
+        for (i = 0; i < 11; i++) {
+                if (actual[i] != expected[i]) {
                         return 0;
                 }
         }
@@ -34,7 +36,7 @@ int main() {
                         case 3: insertionsort(arr, 11); break;
                 }
                 printf("%s %i - %s produces ",
-                        (is_sorted(arr, 11) ? "ok" : "not ok"),
+                        (is_expected(arr) ? "ok" : "not ok"),
                         i + 1, alg_name[i]);
                 print_array(arr, 11);
         }
