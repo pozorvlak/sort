@@ -23,7 +23,8 @@ int is_expected(int *actual)
         return 1;
 }
 
-int main() {
+int main()
+{
         srandom(time(NULL));
         printf("1..%d\n", NUM_ALGS);
         int i;
