@@ -1,17 +1,6 @@
-#include <assert.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-
-void print_array(int* arr, int size)
-{
-        int i;
-        int last = size - 1;
-        for (i = 0; i < last; i++) {
-                printf("%d, ", arr[i]);
-        }
-        printf("%d\n", arr[last]);
-}
+#include "qsort.h"
+#include "print_array.h"
 
 int partition(int *start, int size, int pivot_index)
 {
@@ -51,10 +40,3 @@ void quicksort(int *start, int size)
         quicksort(start + less_than + 1, size - less_than - 1);
 }
 
-int main() {
-        srandom(time(NULL));
-        int arr[11] = { 2, 3, 1, 4, 7, 9, 10, 3, 2, 8, 0 };
-        quicksort(arr, 11);
-        print_array(arr, 11);
-        return 0;
-}
